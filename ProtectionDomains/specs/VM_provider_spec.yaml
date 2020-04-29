@@ -1,0 +1,71 @@
+availability_zone_reference: null
+backup_policy: null
+categories:
+  OSType: Windows
+cluster_reference: null
+name: '@@{calm_application_name}@@'
+resources:
+  account_uuid: b9399077-96de-45f8-99bb-9ecc99a4d0f4
+  boot_config:
+    boot_device:
+      disk_address:
+        adapter_type: SCSI
+        device_index: 0
+        type: ''
+      type: ''
+    boot_type: ''
+    mac_address: ''
+    type: ''
+  disk_list:
+  - data_source_reference:
+      kind: app_package
+      name: Centos 7
+      type: ''
+    device_properties:
+      device_type: DISK
+      disk_address:
+        adapter_type: SCSI
+        device_index: 0
+        type: ''
+      type: ''
+    disk_size_mib: 0
+    type: ''
+    volume_group_reference: null
+  gpu_list: []
+  guest_customization:
+    cloud_init:
+      meta_data: ''
+      type: ''
+      user_data: |
+        #cloud-config
+        password: @@{Creds_Centos.secret}@@
+        disable_root: False
+        ssh_pwauth: True
+        chpasswd:
+         list: |
+           root:@@{Creds_Centos.secret}@@
+         expire: False
+    sysprep: null
+    type: ''
+  guest_tools: null
+  hardware_clock_timezone: ''
+  memory_size_mib: 4096
+  nic_list:
+  - ip_endpoint_list: []
+    mac_address: ''
+    network_function_chain_reference: null
+    network_function_nic_type: INGRESS
+    nic_type: NORMAL_NIC
+    subnet_reference:
+      kind: subnet
+      name: ''
+      type: ''
+      uuid: 6ad73bb4-5703-4fac-9eea-e2ff205ba352
+    type: ''
+  num_sockets: 2
+  num_vcpus_per_socket: 1
+  parent_reference: null
+  power_state: ON
+  serial_port_list: []
+  type: ''
+type: ''
